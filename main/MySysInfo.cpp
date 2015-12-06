@@ -5,13 +5,14 @@
 #include <stdio.h>
 #include <tchar.h>
 #include <psapi.h>
-
+#include <wchar.h>
+//#include <stdio.h>
 
 #define LANGUAGE 1
 #define DIV 1024 // used for byte -> KB -conversion
 
 #if LANGUAGE == 1
-#include "english.h"
+//#include "english.h"
 #endif // LANGUAGE == "english"
 
 namespace MySysInfo
@@ -50,7 +51,7 @@ namespace MySysInfo
 		do
 		{
 			this->numberOfProcesses++;
-			_tprintf(TEXT("\nPROCESS:  %s"), pe32.szExeFile);
+			wprintf(TEXT("\nPROCESS:  %s"), pe32.szExeFile);
 
 			// Retrieve the priority class.
 			dwPriorityClass = 0;
@@ -114,7 +115,7 @@ namespace MySysInfo
 		do
 		{
 			this->numberOfProcesses++;
-			_tprintf(TEXT("\nPROCESS NAME:  %s"), pe32.szExeFile);
+			wprintf(TEXT("\nPROCESS NAME:  %s"), pe32.szExeFile);
 		} while (Process32Next(hProcessSnap, &pe32));
 
 		std::cout << std::endl << "number of process: " << this->numberOfProcesses << std::endl;
@@ -153,7 +154,7 @@ namespace MySysInfo
 		do
 		{
 			this->numberOfProcesses++;
-			_tprintf(TEXT("\nPROCESS NAME:  %s"), pe32.szExeFile);
+			wprintf(TEXT("\nPROCESS NAME:  %s"), pe32.szExeFile);
 
 			// Retrieve the priority class.
 			dwPriorityClass = 0;
@@ -237,7 +238,7 @@ namespace MySysInfo
 		{
 			if (_wcsicmp(pe32.szExeFile, name.data()) == 0)
 			{
-				_tprintf(TEXT("\nPROCESS NAME:  %s"), pe32.szExeFile);
+				wprintf(TEXT("\nPROCESS NAME:  %s"), pe32.szExeFile);
 
 				// Retrieve the priority class.
 				dwPriorityClass = 0;
@@ -317,7 +318,7 @@ namespace MySysInfo
 		{
 			if (processID == pe32.th32ProcessID)
 			{
-				_tprintf(TEXT("\nPROCESS NAME:  %s"), pe32.szExeFile);
+				wprintf(TEXT("\nPROCESS NAME:  %s"), pe32.szExeFile);
 
 				// Retrieve the priority class.
 				dwPriorityClass = 0;

@@ -2,14 +2,43 @@
 #include <stdio.h>
 #include "Windows.h"
 
-/*
-TO DO:
-- kun luokka toimii kunnolla, virheet kirjataan logiin (?).
-*/
-
+/**
+ Konstruktori
+ */
 MyRegistryClass::MyRegistryClass::MyRegistryClass()
 {
 	return;
+}
+
+/*
+Luodaan avain
+*/
+void MyRegistryClass::MyRegistryClass::createKey(std::string name)
+{
+	HKEY h;
+	long n = RegCreateKeyExA(HKEY_CURRENT_USER, (LPCSTR)name.data(), 0, NULL, REG_OPTION_NON_VOLATILE, KEY_ALL_ACCESS, NULL, &h, NULL);
+
+	if (n == ERROR_SUCCESS)
+		std::cout << "Key created" << std::endl;
+	else
+		std::cout << "Key created" << std::endl;
+	RegCloseKey(h);
+	h = NULL;
+	return;
+}
+
+/**
+tarkistetaan onko jokin avain olemassa
+*/
+bool MyRegistryClass::MyRegistryClass::keyExists(std::string name)
+{
+	int n = 0;
+	HKEY myKey = 0;
+	if ((n = RegOpenKeyExA(HKEY_CURRENT_USER, (LPCSTR)(name.data()), 0, KEY_ALL_ACCESS, &myKey)) == ERROR_SUCCESS)
+	{
+		return true;
+	}
+	return false;
 }
 
 /**
@@ -122,7 +151,6 @@ void MyRegistryClass::MyRegistryClass::deleteValue(std::string subkey)
 		std::cout << "ERROR: " << n << std::endl;
 		std::cout << "unable to delete subkey \"" << subkey << "\"." << std::endl;
 	}
-
 }
 
 /**
@@ -182,4 +210,24 @@ void MyRegistryClass::MyRegistryClass::closeRegister()
 	RegCloseKey(key);
 	key = NULL;
 	return;
+}
+
+/**
+gets the value of a value
+*/
+std::string MyRegistryClass::MyRegistryClass::readValue(std::string name)
+{
+	const int size = 256;
+	LPBYTE data[size]{0};
+
+	DWORD dwSize = sizeof(data);
+
+	long n = RegQueryValueExA(this->key, (LPCSTR)name.c_str(), NULL, NULL, (LPBYTE)&data, &dwSize);
+	//long n = RegQueryValueExA(this->key, "moro", NULL, NULL, *data, (LPDWORD)size);
+	std::string ret((char*)data);
+	
+	if (n == ERROR_SUCCESS)
+		return ret;
+	else 
+		return NULL;
 }

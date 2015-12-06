@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Languages">
+      <UniqueIdentifier>{27220da5-aae5-4998-9cf5-bacaf4a0f434}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -25,6 +28,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MySysInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Finnish.h">
+      <Filter>Header Files\Languages</Filter>
+    </ClInclude>
+    <ClInclude Include="English.h">
+      <Filter>Header Files\Languages</Filter>
+    </ClInclude>
+    <ClInclude Include="Language.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

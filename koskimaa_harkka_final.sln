@@ -10,6 +10,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "main", "main\main.vcxproj",
 		{86C0182D-A2F4-43CD-92BD-F33882E24ED4} = {86C0182D-A2F4-43CD-92BD-F33882E24ED4}
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{795A9C46-907B-4E02-B5FC-98B7AAA880FE}"
+	ProjectSection(SolutionItems) = preProject
+		OHJEET.txt = OHJEET.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32

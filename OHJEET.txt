@@ -1,0 +1,61 @@
+/*************************
+*
+*      Työn kuvaus
+*
+*************************/
+
+Työ tehdään 1-3 hengen ryhmissä. 
+Tehkää c/c++ -kielinen ohjelmisto, jossa käsitellään kurssilla käsiteltyjä tekniikoita. 
+Ohjelmiston tulee mielellään ratkaista jokin todellinen ongelma. 
+
+Siinä tulee esiintyä seuraavia asioita:
+>   pääohjelma:
+	-  konsoli- tai Windows-käyttöliittymä
+	-  järkevä käyttötarkoitus
+	-  lukee komentoriviparametreja, jotka noudattavat yleistä ” – a” ” – b” ” – c” … syntaksia. Vain
+	   ohjelman tuntemat komentorivioptiot lisukkeineen hyväksytään. Näillä tulee olla jokin järkevä
+	   käyttötarkoitus. Esim. ” – h” tulostaa kaikki ohjelman tuntemat komentorivioptiot jne.
+>   käsittelee ja hyödyntää Windows- rekisteriä:
+	luo ja lukee rekisteri-avaimia ja -arvoja ohjelman käynnistyksen yhteydessä,
+	ja kirjoittaa arvot takaisin rekisteriin, kun ohjelma suljetaan
+	-  hyödyntää itse tehtyä dynaamista dll-kirjastoa.
+>   dynaaminen kirjasto, dll
+	-  pääohjelman tarvitsemaa toiminnallisuutta
+	-  järkevä käyttötarkoitus
+>   ohjelmiston lähdetiedostoissa useita ehdollisia käännöskokonaisuuksia (#ifdef…), esim. ohjelmiston
+	eri kieliversiot voisivat olla ehdollisina käännöksinä.
+>   ohjelmistossa käytetään hyväksi otsikkotiedostoja (.h)
+>   makefile pääprojektia varten
+	-  ”all”-optio, joka tekee kokonaan uudelleen käännöksen (rebuild)
+	-  ”clean”-optio, joka poistaa kaikki käännös- ja linkitystuotteet
+>   makefile dll:ää varten
+	-  ”all”-optio, joka tekee kokonaan uudelleen käännöksen (rebuild)
+	-  ”clean”-optio, joka poistaa kaikki käännös- ja linkitystuotteet
+>   lähdetiedostojen luokat ja funktiot dokumentoituna Doxygen- työkalun ymmärtämällä tavalla.
+>   Doxygen- työkalulla tehty html- ja rtf- dokumentaatio siten, että kaikki luokat ja kaikki niiden jäsenet
+    näkyvät (myös private) sekä myös lähde-koodi.
+>   koko ohjelmisto paketoituna jollain asennustyökalulla (VS.NET setup, Nullsoft NSIS, …)
+>   readme.txt, josta selviää ohjelmiston tekijät (nimet ja op-numerot) ja ohjelman käyttötarkoitus.
+
+
+/*************************
+*
+*      Työn palautus
+*
+*************************/
+
+Työ viedään moduuliksi palvelimelle SVN- tai GIT-repositoryyn. 
+Kukin ryhmä nimeää moduulinsa yksilöllisesti. 
+Repositoryyn viedään vain kaikki käännöstä varten tarvittavat tiedostot:
+	-   Lähdekoodi- ja projektitiedostot,
+	-   DoxyGen- dokumentaatio + readme.txt omassa doc- alihakemistossaan.
+		Repositoryyn ei viedä mitään käännöstuotoksia, kuten exe, dll, pch, obj jne! Työstä tehdään svn-
+		versionhallintaan kaksi versiota, jotka nimetään tageilla ”eka” ja ”toka”. Näissä pitää olla jokin järkevä ero, eli
+		”kehitystä”.
+
+Työn reppu-palautukseksi lähetetään tiedosto, josta selviää:
+	-	opiskelijoiden nimet ja op-numerot ja
+	-	palvelimen SVN- tai GIT-url
+	-	SVN- tai GIT- moduulin nimi
+	-	Muut mahdollisesti tarvittavat tiedot: 
+			- esim. pääsyoikeustiedot, joiden avulla opettaja pääsee moduuliin käsiksi pääohjelman tarvitsemaa toiminnallisuutta

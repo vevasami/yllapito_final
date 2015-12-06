@@ -15,7 +15,7 @@ käsittelee ja hyödyntää Windows - rekisteriä:
 
 namespace MyRegistryClass
 {
-	 class __declspec(dllexport) MyRegistryClass
+	class __declspec(dllexport) MyRegistryClass
 	{
 	public:
 		MyRegistryClass();
@@ -27,8 +27,10 @@ namespace MyRegistryClass
 		void deleteValue(std::string subkey);
 		DWORD numberOfValues();
 		void addValue(std::string name, std::string content);
-		//void addValue(std::string name, std::string content, unsigned int type);
-		//void getAllValues(std::vector<MyPair>* vector);
+		void createKey(std::string name);
+		bool keyExists(std::string name);
+		std::string readValue(std::string name);
+
 
 	private:
 		// variables 
