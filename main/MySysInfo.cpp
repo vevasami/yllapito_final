@@ -18,8 +18,8 @@
 namespace MySysInfo
 {
 
-	/**
-	prints all processes
+	/** 
+	Printtaa prosession kaikki tiedot minimaalisin tiedoin 
 	*/
 	void MySysInfo::printAllProcessesWithInfo()
 	{
@@ -85,6 +85,9 @@ namespace MySysInfo
 		return;
 	}
 
+	/** 
+	Printtaa prosessit ilman tietoja 
+	*/
 	void MySysInfo::printAllProcessesWithNoInfo()
 	{
 		HANDLE hProcessSnap;
@@ -124,6 +127,9 @@ namespace MySysInfo
 		return;
 	}
 
+	/** 
+	Printtaa kaikkien kaikki tiedot 
+	*/
 	void MySysInfo::printAllProcessesWithDetailedInfo()
 	{
 		HANDLE hProcessSnap;
@@ -193,6 +199,9 @@ namespace MySysInfo
 
 	}
 
+	/** 
+	printtaa järjestelmän muistin tiedot 
+	*/
 	void MySysInfo::printSystemMemory()
 	{
 		MEMORYSTATUSEX memStats;
@@ -207,6 +216,9 @@ namespace MySysInfo
 		return;
 	}
 
+	/** 
+	Prints all processes with the parameter name 
+	*/
 	void MySysInfo::printProcess(std::wstring name)
 	{
 		HANDLE hProcessSnap;
@@ -274,6 +286,9 @@ namespace MySysInfo
 		return;
 	}
 
+	/** 
+	Printtaa prosessin tiedot PID:in perusteella 
+	*/
 	bool MySysInfo::printProcess(DWORD pid)
 	{
 		return this->PrintProcessNameAndID(pid);
@@ -286,6 +301,9 @@ namespace MySysInfo
 	*
 	***************************/
 
+	/** 
+	Print process data with PID == processID 
+	*/
 	bool MySysInfo::PrintProcessNameAndID(DWORD processID)
 	{
 
@@ -359,7 +377,9 @@ namespace MySysInfo
 	}
 
 
-
+	/** 
+	Prints the error + msg 
+	*/
 	inline void MySysInfo::printError(std::string msg)
 	{
 		std::cout << msg << ", ERROR: " << GetLastError();
@@ -384,12 +404,17 @@ namespace MySysInfo
 	*
 	*******************************************/
 
-
+	/** 
+	Tavu megatavu muunnos 
+	*/
 	inline int MySysInfo::BytesToMB(DWORD amount)
 	{
 		return  (amount / 1048576);
 	}
 
+	/** 
+	Tavu gigatavu muunnos 
+	*/
 	inline int MySysInfo::BytesToGB(DWORD amount)
 	{
 		return  (amount / 1048576);
